@@ -1,0 +1,39 @@
+spring:
+  profiles: peer1
+  application:
+    name: dalston-eureka-provider
+  zipkin:
+    base-url: http://localhost:8001
+  sleuth:
+    sampler:
+      percentage: 1.0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 2001
+eureka: 
+  client: 
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+logging:
+  file: ${spring.profiles}.log
+
+---
+
+spring:
+  profiles: peer2
+  application:
+    name: dalston-eureka-provider
+  zipkin:
+    base-url: http://localhost:8001
+server:
+  port: 2002
+eureka: 
+  client: 
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+logging:
+  file: ${spring.profiles}.log

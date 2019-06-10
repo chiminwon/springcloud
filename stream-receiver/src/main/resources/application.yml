@@ -1,0 +1,45 @@
+spring:
+  profiles: peer1
+  application:
+    name: stream-receiver
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: raw-sensor-data
+          group: group1
+          consumer:
+            partitioned: true
+      instanceCount: 2
+      instanceIndex: 0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 7001
+
+---
+
+spring:
+  profiles: peer2
+  application:
+    name: stream-receiver
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: raw-sensor-data
+          group: group1
+          consumer:
+            partitioned: true
+      instanceCount: 2
+      instanceIndex: 1
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 7002

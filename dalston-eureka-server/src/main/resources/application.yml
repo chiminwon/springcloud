@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: dalston-eureka-server-ha
+  profiles: peer1
+server:
+  port: 1001
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+
+---
+
+spring:
+  application:
+    name: dalston-eureka-server-ha
+  profiles: peer2
+server:
+  port: 1002
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1002/eureka,http://localhost:1001/eureka

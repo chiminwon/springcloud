@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: stream-sender
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: raw-sensor-data
+          producer:
+            partitionKeyExpression: payload
+            partitionCount: 2
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 7101

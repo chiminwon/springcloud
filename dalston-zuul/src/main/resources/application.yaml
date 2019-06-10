@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: dalston-zuul
+  zipkin:
+    base-url: http://localhost:8001
+  sleuth:
+    sampler:
+      percentage: 1.0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 6001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+management:
+  security:
+    enabled: false
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: dalston-eureka-consumer-ribbon-hystrix
+
+#zuul:
+#  routes:
+#  single-instance
+#    api-a:
+#      path: /api-a/**
+#      url: http://localhost:2001/
+#  multi-instance
+#    api-b:
+#      path: /api-a/**
+#      serviceId: dalston-eureka-consumer-ribbon-hystrix
+
+
+#api-b:
+#  ribbon:
+#    listOfServers: http://localhost:2001/, http://localhost:2002/

@@ -1,0 +1,26 @@
+spring:
+  profiles: peer1
+  application:
+    name: rabbitmq-hello
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 10001
+
+---
+
+spring:
+  profiles: peer2
+  application:
+    name: rabbitmq-hello
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 10002
+
