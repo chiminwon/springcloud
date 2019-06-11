@@ -19,7 +19,12 @@
         <module>rabbitmq-hello</module>
         <module>stream-sender</module>
         <module>stream-receiver</module>
+        <module>rabbitmq-demo</module>
+        <module>dalston-consul-provider</module>
+        <module>dalston-zipkin-server</module>
+        <module>dalston-eureka-consumer-feign</module>
+        <module>dalston-config-server-git</module>
+        <module>dalston-config-client</module>
     </modules>
-
 
 </project>
