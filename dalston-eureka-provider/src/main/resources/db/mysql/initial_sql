@@ -1,0 +1,61 @@
+DROP DATABASE IF EXISTS cloud;
+CREATE DATABASE cloud CHARACTER SET UTF8;
+
+USE cloud;
+
+CREATE TABLE department
+(
+  dept_no BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  dept_name VARCHAR(60),
+  source VARCHAR(60)
+ );
+
+INSERT INTO department(dept_name,source) VALUES('开发部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('人事部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('财务部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('市场部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('运维部',DATABASE());
+
+
+--------------------------------------------------------------------
+
+
+DROP DATABASE IF EXISTS cloud1;
+CREATE DATABASE cloud1 CHARACTER SET UTF8;
+
+USE cloud1;
+
+CREATE TABLE department
+(
+  dept_no BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  dept_name VARCHAR(60),
+  source VARCHAR(60)
+ );
+
+INSERT INTO department(dept_name,source) VALUES('开发部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('人事部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('财务部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('市场部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('运维部',DATABASE());
+
+
+--------------------------------------------------------------------
+
+
+DROP DATABASE IF EXISTS cloud2;
+CREATE DATABASE cloud2 CHARACTER SET UTF8;
+
+USE cloud2;
+
+CREATE TABLE department
+(
+  dept_no BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  dept_name VARCHAR(60),
+  source VARCHAR(60)
+ );
+
+INSERT INTO department(dept_name,source) VALUES('开发部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('人事部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('财务部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('市场部',DATABASE());
+INSERT INTO department(dept_name,source) VALUES('运维部',DATABASE());

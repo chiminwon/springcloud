@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class ConsumerController {
 
@@ -29,6 +32,11 @@ public class ConsumerController {
         return consumerSerive.callProviderGetHostPort();
     }
 
+    @GetMapping("/getAllDepts")
+    public List getProviderAllDepts() {
+        return consumerSerive.callProviderAllDepts();
+    }
+
     @Service
     class ConsumerService {
 
@@ -45,8 +53,19 @@ public class ConsumerController {
             return restTemplate.getForObject("http://dalston-eureka-provider/getHostPort", String.class);
         }
 
+        @HystrixCommand(fallbackMethod = "deptFallback")
+        public List callProviderAllDepts() {
+            return restTemplate.getForObject("http://dalston-eureka-provider/getAllDepts", List.class);
+        }
+
         public String fallback() {
             return "Service is not available, please contact the admin.";
+        }
+
+        public List deptFallback() {
+            List msg = new ArrayList();
+            msg.add("Service is not available, please contact the admin.");
+            return msg;
         }
     }
 }

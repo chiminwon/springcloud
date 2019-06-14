@@ -45,6 +45,15 @@
             <!-- 值只有 true 热部署才有效 -->
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>2.7.3</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
