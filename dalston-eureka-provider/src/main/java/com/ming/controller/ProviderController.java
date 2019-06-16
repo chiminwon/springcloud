@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,13 +37,29 @@ public class ProviderController {
         return "Call Provider Host Port is :: " + port;
     }
 
+    @PostMapping(value = "/addDepartment", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String addDepartment(Department dept) {
+        return deptService.addDepartment(dept);
+    }
+
+    @GetMapping("/findDeptByNo/{deptNo}")
+    public Department findDeptByNo(@PathVariable("deptNo") Long deptNo) {
+        return deptService.findDeptByNo(deptNo);
+    }
+
     @GetMapping("/getAllDepts")
     public List<Department> getAllDepartments() {
         return deptService.findAll();
     }
 
-    @PostMapping(value = "/updateDepartment", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PutMapping(value = "/updateDepartment", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateDepartment(@ModelAttribute Department dept) {
         return deptService.updateDepartment(dept);
+    }
+
+    @DeleteMapping(value = "/deleteDepartment/{deptNo}")
+    //@DeleteMapping(value = "/deleteDepartment", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String deleteDepartment(@PathVariable Long deptNo) {
+        return deptService.deleteDepartment(deptNo);
     }
 }
