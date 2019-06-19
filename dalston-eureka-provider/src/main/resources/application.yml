@@ -12,8 +12,8 @@ spring:
     port: 5672
     username: guest
     password: guest
-  ## Redis 配置
   redis:
+    ## Redis 单点配置
     ## Redis数据库索引（默认为0）
     database: 0
     ## Redis服务器地址
@@ -31,8 +31,21 @@ spring:
       max-idle: 8
       ## 连接池中的最小空闲连接
       min-idle: 0
-      ## 连接超时时间（毫秒）
-      timeout: 0
+    ## 连接超时时间（毫秒）
+    timeout: 0
+    ## Redis 集群配置
+#    database: 0
+#    password: password
+#    lettuce:
+#      pool:
+#        max-active: 8
+#        max-idle: 300
+#        min-idel: 20
+#        max-wait: -1
+#    timeout: 15000
+#    commandTimeout: 5000
+#    cluster:
+#      nodes: 127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394,127.0.0.1:6395,127.0.0.1:6396
 server:
   port: 2001
 eureka:

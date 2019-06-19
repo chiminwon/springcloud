@@ -1,0 +1,98 @@
+package com.ming.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.interceptor.KeyGenerator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import redis.clients.jedis.JedisPoolConfig;
+
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
+
+@Configuration
+@EnableCaching
+public class RedisClusterCacheConfig extends CachingConfigurerSupport {
+
+    @Value("${spring.redis.cluster.nodes}")
+    private String clusterNodes;
+    @Value("${spring.redis.timeout}")
+    private int timeout;
+    @Value("${spring.redis.lettuce.pool.max-idle}")
+    private int maxIdle;
+    @Value("${spring.redis.lettuce.pool.max-wait}")
+    private long maxWaitMillis;
+    @Value("${spring.redis.commandTimeout}")
+    private int commandTimeout;
+
+    @Bean
+    public RedisClusterConfiguration getRedisCluster() {
+        String[] cNodes = clusterNodes.split(",");
+        Set<RedisNode> jedisClusterNodes = new HashSet<RedisNode>();
+        // 分割出集群节点
+        for (String node : cNodes) {
+            String[] hp = node.split(":");
+            jedisClusterNodes.add(new RedisNode(hp[0], Integer.parseInt(hp[1])));
+        }
+        RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration();
+        redisClusterConfiguration.setClusterNodes(jedisClusterNodes);
+        return redisClusterConfiguration;
+    }
+
+    @Bean
+    public JedisPoolConfig getJedisPoolConfig() {
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxTotal(150);
+        jedisPoolConfig.setMaxIdle(30);
+        jedisPoolConfig.setMinIdle(10);
+        return jedisPoolConfig;
+    }
+
+    @Bean
+    public JedisConnectionFactory redisConnectionFactory(RedisClusterConfiguration redisClusterConfiguration, JedisPoolConfig jedisPoolConfig) {
+        JedisConnectionFactory redisConnectionFactory = new JedisConnectionFactory(redisClusterConfiguration);
+        redisConnectionFactory.setPassword("password");
+        redisConnectionFactory.setPoolConfig(jedisPoolConfig);
+        return redisConnectionFactory;
+    }
+
+    @Bean
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory cf) {
+        RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
+        redisTemplate.setConnectionFactory(cf);
+        return redisTemplate;
+    }
+
+    @Bean
+    public CacheManager cacheManager(RedisTemplate redisTemplate) {
+        RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
+        cacheManager.setDefaultExpiration(3000);
+        return cacheManager;
+    }
+
+    @Bean
+    public KeyGenerator allenKeyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object o, Method method, Object... objects) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(o.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : objects) {
+                    sb.append(obj.toString());
+                }
+                System.out.println(sb.toString());
+                return sb.toString();
+            }
+        };
+    }
+}

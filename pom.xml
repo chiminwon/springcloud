@@ -25,6 +25,8 @@
         <module>dalston-eureka-consumer-feign</module>
         <module>dalston-config-server-git</module>
         <module>dalston-config-client</module>
+        <module>dalston-OAuth2-server</module>
+        <module>dalston-OAuth2-resource</module>
     </modules>
 
 </project>

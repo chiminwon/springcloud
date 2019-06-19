@@ -1,0 +1,28 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+server:
+  port: 8882
+spring:
+  application:
+    name: dalston-OAuth2-resource
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-cloud-auth?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8881/uaa/users/current #获取当前Token的用户信息
+    client:
+      clientId: dalston-OAuth2-resource
+      clientSecret: root
+      accessTokenUri: http://localhost:8881/uaa/oauth/token #获取Token
+      grant-type: client_credentials,password
+      scope: server

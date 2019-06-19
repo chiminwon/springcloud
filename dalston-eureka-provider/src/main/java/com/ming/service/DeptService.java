@@ -31,6 +31,7 @@ public class DeptService {
 
     public String addDepartment(Department dept) {
         Long addFlag = deptRepo.saveDepartment(dept);
+        System.out.println("dept.getDeptNo() = " + dept.getDeptNo());
         System.out.println("addFlag = " + addFlag);
         if (addFlag != 0L) {
             return ADD_SUCCESS;
