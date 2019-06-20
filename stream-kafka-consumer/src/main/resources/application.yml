@@ -1,0 +1,28 @@
+spring:
+  profiles: peer1
+  application:
+    name: stream-kafka-consumer
+  cloud:
+    instance-count: 1
+    instance-index: 0
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zk-nodes: localhost:2181
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 1
+      bindings:
+        input:
+          destination: event-demo
+          group: s1
+          consumer:
+            autoCommitOffset: false
+            concurrency: 1
+            partitioned: false
+server:
+  port: 7202
+
+---
+
