@@ -15,6 +15,8 @@ public class AccessFilter extends ZuulFilter {
 
     private static final String TOKEN_PARAMETER = "token";
 
+    private static final String DOC_API_URI = "/dalston-eureka-consumer-ribbon-hystrix/v2/api-docs";
+
     @Override
     public String filterType() {
         return FilterConstants.PRE_TYPE;
@@ -27,7 +29,13 @@ public class AccessFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+        if (request.getRequestURI().equalsIgnoreCase(DOC_API_URI)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
