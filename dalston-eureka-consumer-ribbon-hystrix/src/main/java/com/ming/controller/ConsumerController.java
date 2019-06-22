@@ -50,8 +50,7 @@ public class ConsumerController {
 
     @ApiOperation(value = "获取部门详细信息", notes = "根据url的deptNo来获取部门详细信息")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "deptNo", value = "部门编号", required = true, dataType = "Long"),
-            @ApiImplicitParam(name = "token", defaultValue = "&token=123", required = true, dataType = "String")
+            @ApiImplicitParam(name = "deptNo", value = "部门编号", required = true, dataType = "Long")
     })
     @GetMapping("/getDeptByNo/{deptNo}")
     public Department getDeptByNo(@PathVariable("deptNo") Long deptNo) {
