@@ -27,7 +27,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <!-- 值只有 true 热部署才有效 -->
-            <optional>true</optional>
+            <optional>false</optional>
         </dependency>
     </dependencies>
 

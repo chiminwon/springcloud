@@ -5,52 +5,34 @@ spring:
     config:
       server:
         git:
-#          uri: https://github.com/chiminwon/config-repo-demo
+          uri: https://github.com/chiminwon/config-repo-demo.git
 #          username: chiminwon@gmail.com
 #          password: 1qaz!QAZ
 #          skipSslValidation: true
 #          timeout: 5
-          uri: http://git.oschina.net/didispace/config-repo-demo/
-#          uri: https://gitee.com/chiminwon/config-repo
+          basedir: C:\Tools\workspace\Git\config-repo-demo
+#          uri: http://git.oschina.net/didispace/config-repo-demo/
 #          search-paths: repo
 #          username: chiminwon@gmail.com
 #          password: 1qaz!QAZ
-#        uri: git@github.com:chiminwon/config-repo-demo.git
-#        ignoreLocalSshSettings: true
-#        hostKey: T450SS
-#        hostKeyAlgorithm: ssh-rsa
-#        privateKey: |
-#          -----BEGIN OPENSSH PRIVATE KEY-----
-#          b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
-#          NhAAAAAwEAAQAAAQEAoNAu4XIl2KSmZOs/K1mRNK8vR6Mu25x1+5zkw1ZJE6EDHJR8XOcO
-#          Wz2eJxMawATtaB8shgA1cGp0G2GdlORPi34L5WSXqW5Dl18jV4kDKTchq1U8R+4Hw4TMQF
-#          EnJZNvZPO4QUO6TDoSivQfBA4oqXzbDKgmn+x1eO6ZtDHBLK6h2ar/5cg5G3idSP+EHykw
-#          eP03BKdhDLUnNOq0gjHjqjr48E2vdutgtwxvzeN7qM6g1L+5S5Fnrvh+/LC7g1hFQ0CIML
-#          BdZjMOlVBTIQSzTwEbetHsDBesW017tUPvQYxrKkZstNlDc7flksqhL5mgqflkh8vH7qKY
-#          YHdaU39wmQAAA9B9OEcyfThHMgAAAAdzc2gtcnNhAAABAQCg0C7hciXYpKZk6z8rWZE0ry
-#          9Hoy7bnHX7nOTDVkkToQMclHxc5w5bPZ4nExrABO1oHyyGADVwanQbYZ2U5E+LfgvlZJep
-#          bkOXXyNXiQMpNyGrVTxH7gfDhMxAUSclk29k87hBQ7pMOhKK9B8EDiipfNsMqCaf7HV47p
-#          m0McEsrqHZqv/lyDkbeJ1I/4QfKTB4/TcEp2EMtSc06rSCMeOqOvjwTa9262C3DG/N43uo
-#          zqDUv7lLkWeu+H78sLuDWEVDQIgwsF1mMw6VUFMhBLNPARt60ewMF6xbTXu1Q+9BjGsqRm
-#          y02UNzt+WSyqEvmaCp+WSHy8fuophgd1pTf3CZAAAAAwEAAQAAAQEAnBg3yUHBlr6LfR4T
-#          3QI9vkPlwsWU8Dq5ExjBvRH+MP1zRcSjypHFD6+J2ifjKUwfHZhU4WVGee368bEZArNyut
-#          YIugugYyfSmBYS+h7WYKVRGzvLHY7hHlnC4RNkykaINBeWXFNffCpKYXKAwLD1qz60aV62
-#          zzj49f+0VoKNHc6C8Y9vQYqVSlaWZvGLP4n3dskLdTVYzR2G78qiAdMozXyqOVCClufsQV
-#          CmPRUV+xwHilffANo8bpU0hhHuYo9h9mwQNqLWLfuhoA/eS0VW5EqJod9rdvarhvKQvocS
-#          HXpdTO7Xer1VUfaA8LpW73EDE549Bm3Ib1oVYJ60YD+bAQAAAIAxyQjzZ5dQlrJGWPzF68
-#          EWL2sCpD6zcU5SjVyRfCxrJf4fW1vBbjelM/WzEX6y58Q08Hp7u/9P6EHKxoHYFPThl4F0
-#          YKFtVOsuc1+LM9wacc8sRJoR/eFMbfSuryHomKcr/+UvW1iqQ6NAin20ApJmlUSqdhpCTR
-#          IDrz68kvsSMQAAAIEAz25n8GdhNh2sDHvY8VRpKSpIaREVF8pmeWRKEwGbBITl1/mafdev
-#          jzdxK7f730XHVbhHLAGEEkDFu5BE0sX/lfcY4X+Ixx7OkaeXyhuCgPS/4NyS81ObHg+sWl
-#          r7Qv2P8vDmf6b/XJ+KPM81U846hQRfOa9Mm417e7TU0MxxHkkAAACBAMZ3dDe9l5bfInb5
-#          uUX/GdqzC5+GxJsJ1FMmnq0GpjOc2PT+m9Zcp3BU22gWeIlmR7H6Z17zbb32LgzvDCt+BX
-#          wgKVSqn3+9WkzU7OGr8BUxtWLHWoxtDAkFad7HXdR3QOUsCabpqWKDfAAHhhukKJXH7pgP
-#          zZhKMC4FMNLKI//RAAAAE2NoaW1pbndvbkBnbWFpbC5jb20BAgMEBQYH
-#          -----END OPENSSH PRIVATE KEY-----
+#          uri: git@github.com:chiminwon/config-repo-demo.git
 
-eureka:
-  client: 
-    serviceUrl:
-      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+  # 配置rabbitmq的地址以及用户密码
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+# 允许/actuator/bus-refresh接口被外部调用
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: *
 server:
   port: 1501
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+

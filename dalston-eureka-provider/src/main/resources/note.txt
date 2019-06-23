@@ -1,0 +1,2 @@
+#Druid web url, to watch the database
+http://localhost:2001/druid/

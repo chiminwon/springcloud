@@ -5,11 +5,15 @@ spring:
 server:
   port: 1001
 eureka:
+  environment: Dev
   instance:
     prefer-ip-address: true
     hostname: localhost
 #    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+  server:
+    enable-self-preservation: false
   client:
+    #Register himself to the center
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
@@ -24,10 +28,14 @@ spring:
 server:
   port: 1002
 eureka:
+  environment: Dev
   instance:
     prefer-ip-address: true
     hostname: 127.0.0.1
+  server:
+    enable-self-preservation: false
   client:
+    #Register himself to the center
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:

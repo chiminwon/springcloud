@@ -1,11 +1,29 @@
 spring:
   application:
-    name: config-client
+    name: dalston-config-client-git
   cloud:
     config:
-      uri: http://localhost:1501/
+      discovery:
+        enabled: true
+        service-id: dalston-config-server-git  # 注册中心的服务名
+#      uri: http://localhost:1501
       profile: default
       label: master
-
-server:
-  port: 1601
+  # 配置rabbitmq的地址以及用户密码
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+# 允许/actuator/bus-refresh接口被外部调用
+#management:
+#  security:
+#    enabled: false
+#  endpoints:
+#    web:
+#      exposure:
+#        include: *
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka

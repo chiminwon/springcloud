@@ -82,7 +82,7 @@ public class ConsumerController {
 
         @HystrixCommand(fallbackMethod = "fallback")
         public Department callProviderDeptNo(Long deptNo) {
-            return restTemplate.getForObject(url + "/findDeptByNo/{deptNo}", Department.class, deptNo);
+            return restTemplate.getForObject(url + "/findDeptByNo/a/{deptNo}", Department.class, deptNo);
         }
 
         public String fallback() {
