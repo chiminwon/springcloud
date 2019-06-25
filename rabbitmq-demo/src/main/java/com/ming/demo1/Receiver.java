@@ -1,4 +1,4 @@
-package com.ming;
+package com.ming.demo1;
 
 import com.rabbitmq.client.*;
 
@@ -28,7 +28,7 @@ public class Receiver {
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);
-//        channel.close();
-//        conn.close();
+        channel.close();
+        conn.close();
     }
 }
