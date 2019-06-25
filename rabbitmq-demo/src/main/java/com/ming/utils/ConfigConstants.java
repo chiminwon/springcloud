@@ -7,7 +7,7 @@ public class ConfigConstants {
     public static final String USERNAME = "guest";
     public static final String PASSWORD = "guest";
     public static final String VHOST = "/";
-    public static final String QUEUE_NAME = "queue01";
+    public static final String QUEUE_NAME = "RabbitMQDemo";
     public static final String CODE_FORMAT = "UTF-8";
     public static final String EXCHANGE_TYPE_FANOUT = "fanout";
     public static final String EXCHANGE_NAME_FANOUT = "fanout01";
