@@ -1,19 +1,18 @@
-package com.ming.dao.imp;
+package com.ming.department.dao.imp;
 
 import com.ming.dao.BaseRepository;
-import com.ming.domain.Department;
+import com.ming.department.domain.Department;
 import org.apache.ibatis.annotations.*;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Mapper
 @Repository
-public interface DeptRepository extends BaseRepository<Department, Long> {
+public interface DeptRepository extends BaseRepository {
 
     /**
      * @param dept

@@ -8,6 +8,7 @@
     <artifactId>Spring-Cloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>dalston-eureka-server</module>
         <module>dalston-eureka-provider</module>
@@ -29,6 +30,9 @@
         <module>dalston-OAuth2-resource</module>
         <module>stream-kafka-producer</module>
         <module>stream-kafka-consumer</module>
+        <module>dalston-api</module>
+        <module>alibaba-nacos-client</module>
+        <module>alibaba-nacos-consumer</module>
     </modules>
 
 </project>

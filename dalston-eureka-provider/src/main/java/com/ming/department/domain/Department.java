@@ -1,4 +1,4 @@
-package com.ming.domain;
+package com.ming.department.domain;
 
 import lombok.Data;
 

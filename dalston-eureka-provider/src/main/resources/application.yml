@@ -59,7 +59,18 @@ logging:
   level:
     com.ming.dao: debug
   file: ${spring.application.name}-${spring.profiles}.log
-
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+        ## 打开所有的监控点
+#        include: "*"
+      ## 启用单独的url地址来监控 Spring Boot 应用
+#      base-path: monitor
+#    health:
+#      show-details: always
+#    shutdown:
+#      enabled: true
 ---
 
 spring:

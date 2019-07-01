@@ -1,11 +1,10 @@
-package com.ming.service;
+package com.ming.department.service;
 
-import com.ming.dao.imp.DeptRepository;
-import com.ming.domain.Department;
-import com.ming.redis.lock.redis.lock.jedis.RedisLockTool;
+import com.ming.department.dao.imp.DeptRepository;
+import com.ming.department.domain.Department;
+import com.ming.lock.redis.jedis.RedisLockTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.Jedis;
 
 import java.util.List;

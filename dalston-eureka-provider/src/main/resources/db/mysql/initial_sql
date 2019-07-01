@@ -16,6 +16,23 @@ INSERT INTO department(dept_name,source) VALUES('财务部',DATABASE());
 INSERT INTO department(dept_name,source) VALUES('市场部',DATABASE());
 INSERT INTO department(dept_name,source) VALUES('运维部',DATABASE());
 
+CREATE TABLE employee
+(
+  emp_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  emp_name VARCHAR(60),
+  emp_age int,
+  emp_dept_no BIGINT,
+  constraint fk_emp_dept foreign key (emp_dept_no) references department(dept_no) on delete cascade on update cascade
+ );
+
+--创建索引
+ALTER TABLE employee ADD INDEX index_emp (emp_id);
+
+INSERT INTO employee(emp_name,emp_age,emp_dept_no) VALUES('Allen',18,1);
+INSERT INTO employee(emp_name,emp_age,emp_dept_no) VALUES('Ada',38,2);
+INSERT INTO employee(emp_name,emp_age,emp_dept_no) VALUES('Ack',28,3);
+INSERT INTO employee(emp_name,emp_age,emp_dept_no) VALUES('Aok',38,4);
+INSERT INTO employee(emp_name,emp_age,emp_dept_no) VALUES('Aop',78,5);
 
 --------------------------------------------------------------------
 

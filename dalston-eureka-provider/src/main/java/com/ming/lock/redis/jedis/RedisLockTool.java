@@ -1,4 +1,4 @@
-package com.ming.redis.lock.redis.lock.jedis;
+package com.ming.lock.redis.jedis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

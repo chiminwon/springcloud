@@ -33,12 +33,12 @@ public class OAuth2ServerApp {
 
     @Configuration
     @EnableAuthorizationServer //开启授权服务的功能
-    protected  class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
+    protected class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 
         //将Token存储在内存中
         //private TokenStore tokenStore = new InMemoryTokenStore();
 
-        JdbcTokenStore tokenStore=new JdbcTokenStore(dataSource);
+        JdbcTokenStore tokenStore = new JdbcTokenStore(dataSource);
 
         @Autowired
         @Qualifier("authenticationManagerBean")
@@ -57,7 +57,7 @@ public class OAuth2ServerApp {
                     .and()
                     .withClient("dalston-OAuth2-resource")
                     .secret("123456")
-                    .authorizedGrantTypes("client_credentials", "refresh_token","password")
+                    .authorizedGrantTypes("client_credentials", "refresh_token", "password")
                     .scopes("server");
 
         }
