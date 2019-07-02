@@ -7,16 +7,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/env")
-// 这个注解声明了刷新配置的范围，如果使用config配置类的话，就声明到配置类上即可
+@RequestMapping("/test")
+//这个注解声明了刷新配置的范围，如果使用config配置类的话，就声明到配置类上即可
 @RefreshScope
-public class EnvController {
+public class TestController {
 
     @Value("${env}")
     private String env;
 
+    @Value("${message}")
+    String message;
+
     @GetMapping("/print")
     public String getEnv(){
         return env;
+    }
+
+    @GetMapping("/hello")
+    public String getMessage(){
+        return message;
     }
 }

@@ -1,0 +1,45 @@
+spring:
+  profiles: peer1
+  application:
+    name: dalston-eureka-provider
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: dalston-config-server-git  # 注册中心的服务名
+      profile: peer1
+      label: master
+  # 配置rabbitmq的地址以及用户密码
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+
+---
+
+spring:
+  profiles: peer2
+  application:
+    name: dalston-eureka-provider
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: dalston-config-server-git  # 注册中心的服务名
+      profile: peer2
+      label: master
+  # 配置rabbitmq的地址以及用户密码
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka

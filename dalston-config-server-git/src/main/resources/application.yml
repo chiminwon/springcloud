@@ -5,34 +5,39 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/chiminwon/config-repo-demo.git
+          uri: https://github.com/chiminwon/Config-repo
+          basedir: C:\Tools\workspace\Git\Config-repo
+#          uri: http://git.oschina.net/didispace/config-repo-demo/
+#          uri: https://github.com/chiminwon/config-repo-demo.git
 #          username: chiminwon@gmail.com
 #          password: 1qaz!QAZ
 #          skipSslValidation: true
 #          timeout: 5
-          basedir: C:\Tools\workspace\Git\config-repo-demo
-#          uri: http://git.oschina.net/didispace/config-repo-demo/
 #          search-paths: repo
-#          username: chiminwon@gmail.com
-#          password: 1qaz!QAZ
-#          uri: git@github.com:chiminwon/config-repo-demo.git
-
+#          default-label: master
+    bus:
+      trace:
+        enabled: true
   # 配置rabbitmq的地址以及用户密码
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-# 允许/actuator/bus-refresh接口被外部调用
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: *
+management:
+  security:
+    enabled: false
+  endpoint:
+    bus-refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: refresh,bus-refresh
 server:
   port: 1501
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1001/eureka,http://127.0.0.1:1002/eureka
+      defaultZone: http://localhost:1001/eureka
 

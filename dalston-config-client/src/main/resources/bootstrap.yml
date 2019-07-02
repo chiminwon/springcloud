@@ -15,14 +15,6 @@ spring:
     port: 5672
     username: guest
     password: guest
-# 允许/actuator/bus-refresh接口被外部调用
-#management:
-#  security:
-#    enabled: false
-#  endpoints:
-#    web:
-#      exposure:
-#        include: *
 eureka:
   client:
     serviceUrl:

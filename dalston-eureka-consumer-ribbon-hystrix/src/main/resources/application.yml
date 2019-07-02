@@ -23,6 +23,14 @@ eureka:
       defaultZone: http://localhost:1001/eureka/
 swagger:
   base-package: com.ming
+##设置策略
+#dalston-eureka-consumer-ribbon-hystrix:
+#  ribbon:
+#    #随机算法
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    #轮训算法
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
 ---
 
 spring:
