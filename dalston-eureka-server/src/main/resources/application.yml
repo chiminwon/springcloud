@@ -4,6 +4,9 @@ spring:
   profiles: peer1
 server:
   port: 1001
+#  jetty:
+#    acceptors: 2
+#    selectors: 4
 eureka:
   environment: Dev
   instance:
