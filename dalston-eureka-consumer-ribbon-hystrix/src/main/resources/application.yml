@@ -3,7 +3,7 @@ spring:
   application:
     name: dalston-eureka-consumer-ribbon-hystrix
   zipkin:
-    base-url: http://localhost:8001
+    base-url: http://localhost:1601
   sleuth:
     sampler:
       percentage: 1.0
@@ -13,7 +13,7 @@ spring:
     username: guest
     password: guest
 server:
-  port: 3001
+  port: 1021
 eureka:
   client:
     #Enable health check
@@ -38,7 +38,7 @@ spring:
   application:
     name: dalston-eureka-consumer-ribbon-hystrix
   zipkin:
-    base-url: http://localhost:8001
+    base-url: http://localhost:1061
   sleuth:
     sampler:
       percentage: 1.0
@@ -48,7 +48,7 @@ spring:
     username: guest
     password: guest
 server:
-  port: 3002
+  port: 1022
 eureka:
   client:
     #Enable health check

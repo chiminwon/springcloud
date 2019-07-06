@@ -1,0 +1,7 @@
+server:
+  port: 8003
+zuul:
+  routes:
+    proxy:
+      path: /proxy/**
+      url: http://localhost:8002/

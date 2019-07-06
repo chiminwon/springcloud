@@ -33,6 +33,8 @@
         <module>dalston-api</module>
         <module>alibaba-nacos-client</module>
         <module>alibaba-nacos-consumer</module>
+        <module>springmvc-html</module>
+        <module>springmvc-zuul-proxy</module>
     </modules>
 
 </project>

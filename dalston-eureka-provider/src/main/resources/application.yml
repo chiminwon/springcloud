@@ -3,7 +3,7 @@ spring:
   application:
     name: dalston-eureka-provider
   zipkin:
-    base-url: http://localhost:8001
+    base-url: http://localhost:1061
   sleuth:
     sampler:
       percentage: 1.0
@@ -47,7 +47,7 @@ spring:
 #    cluster:
 #      nodes: 127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394,127.0.0.1:6395,127.0.0.1:6396
 server:
-  port: 2001
+  port: 1011
 eureka:
   client:
     #Enable health check
@@ -78,7 +78,7 @@ spring:
   application:
     name: dalston-eureka-provider
   zipkin:
-    base-url: http://localhost:8001
+    base-url: http://localhost:1061
   sleuth:
     sampler:
       percentage: 1.0
@@ -122,7 +122,7 @@ spring:
   #    cluster:
   #      nodes: 127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394,127.0.0.1:6395,127.0.0.1:6396
 server:
-  port: 2002
+  port: 1012
 eureka:
   client:
     #Enable health check
