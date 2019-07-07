@@ -22,9 +22,9 @@ public class DBConfig {
     public static final String DB_DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     public static final String DB_USERNAME = "root";
     public static final String DB_PASSWORD = "root";
-    public static final String JDBC_URL = "jdbc:mysql://localhost:3306/Cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
-    public static final String JDBC_URL_A = "jdbc:mysql://localhost:3306/Cloud1?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
-    public static final String JDBC_URL_B = "jdbc:mysql://localhost:3306/Cloud2?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
+    public static final String JDBC_URL = "jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
+    public static final String JDBC_URL_A = "jdbc:mysql://localhost:3306/cloud1?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
+    public static final String JDBC_URL_B = "jdbc:mysql://localhost:3306/cloud2?useUnicode=true&characterEncoding=utf-8&useSSL=false&createDatabaseIfNotExist=true";
     public static final int MAX_INITIAL_SIZE = 5;
     public static final int MIN_IDLE_SIZE = 5;
     public static final int MAX_ACTIVE_SIZE = 5;
