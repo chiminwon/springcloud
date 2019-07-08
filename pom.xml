@@ -35,6 +35,7 @@
         <module>alibaba-nacos-consumer</module>
         <module>springmvc-html</module>
         <module>springmvc-zuul-proxy</module>
+        <module>sleuth</module>
     </modules>
 
 </project>

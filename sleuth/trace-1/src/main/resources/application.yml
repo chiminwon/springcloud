@@ -1,0 +1,9 @@
+server:
+  port: 1003
+spring:
+  application:
+    name: trace-1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka

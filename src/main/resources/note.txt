@@ -1,0 +1,18 @@
+-- 应用端口和名称
+eureka 1001 1002
+sudo java -jar dalston-eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer1
+sudo java -jar dalston-eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer2
+provider 1011 1012
+sudo java -jar dalston-eureka-provider-1.0-SNAPSHOT.jar --spring.profiles.active=peer1
+sudo java -jar dalston-eureka-provider-1.0-SNAPSHOT.jar --spring.profiles.active=peer2
+consumer 1021 1022
+sudo java -jar dalston-eureka-consumer-ribbon-hystrix-1.0-SNAPSHOT.jar --spring.profiles.active=peer1
+sudo java -jar dalston-eureka-consumer-ribbon-hystrix-1.0-SNAPSHOT.jar --spring.profiles.active=peer2
+turbine-amqp 1041 1045
+sudo java -jar dalston-turbine-amqp-1.0-SNAPSHOT.jar
+hystrix dashboard 1031
+sudo java -jar dalston-hystrix-dashboard-1.0-SNAPSHOT.jar
+zuul 1051
+sudo java -jar dalston-zuul-1.0-SNAPSHOT.jar
+zipkin 1061
+sudo java -jar dalston-zipkin-server-amqp-1.0-SNAPSHOT.jar

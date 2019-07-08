@@ -1,0 +1,9 @@
+erver:
+  port: 1004
+spring:
+  application:
+    name: trace-2
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka
